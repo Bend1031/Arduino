@@ -1,0 +1,8 @@
+{
+    "port": "COM3",
+    "board": "arduino:avr:uno",
+    "programmer": "AVRISP mkII",
+    "sketch": "Ultrasonic_ranging\\example_Ultrasonic_ranging\\example_Ultrasonic_ranging.ino",
+    "C_Cpp.intelliSenseEngineFallback": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Tag Parser"
+}
