@@ -5,7 +5,9 @@
             "includePath": [
                 "E:\\Engirneering\\Arduino\\tools\\**",
                 "E:\\Engirneering\\Arduino\\hardware\\arduino\\avr\\**",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:\\Users\\Bend\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\**",
+                "C:\\Users\\Bend\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\**"
             ],
             "defines": [
                 "_DEBUG",
@@ -14,17 +16,15 @@
             ],
             "intelliSenseMode": "msvc-x64",
             "forcedInclude": [
-                "E:\\Engirneering\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
+                "E:\\Engirneering\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h",
+                "C:\\Users\\Bend\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\cores\\arduino\\Arduino.h"
             ]
         },
-
         {
             "name": "Arduino",
             "includePath": [
                 "${workspaceRoot}"
             ],
-           
-            
             "browse": {
                 "path": [
                     "E:\\Engirneering\\Arduino\\tools\\**",
@@ -34,7 +34,6 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-                
             },
             "intelliSenseMode": "msvc-x64"
         }
