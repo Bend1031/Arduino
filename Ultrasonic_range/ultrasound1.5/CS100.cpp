@@ -67,12 +67,23 @@ void CSUltra::Mea()
 
     gmin = (mdp.data_ave - dis_raw[LSB]) / mdp.data_sdiff;
     gmax = (dis_raw[MSB] - mdp.data_ave) / mdp.data_sdiff;
-    if (gmax >= Grubbs_lut5[MSB - LSB - 4])
-      MSB--;
-    else if (gmin >= Grubbs_lut5[MSB - LSB - 4])
-      LSB++;
+
+    if (gmax > gmin)
+    {
+      if (gmax >= Grubbs_lut5[MSB - LSB - 4])
+        MSB--;
+      else
+        break;
+    }
     else
-      break;
+    {
+      if (gmin >= Grubbs_lut5[MSB - LSB - 4])
+        LSB++;
+      else
+
+        break;
+    }
+
+    dis = (unsigned long)(mdp.data_ave + 0.5);
   }
-  dis = (unsigned long)(mdp.data_ave + 0.5);
 }
