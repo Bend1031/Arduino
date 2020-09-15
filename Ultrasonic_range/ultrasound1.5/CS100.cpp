@@ -5,7 +5,6 @@ CSUltra::CSUltra()
 {
   time_us=0;
   dis=0;
-  temp = 0;
   dis_int = 0;
 }
 
@@ -36,10 +35,8 @@ unsigned long CSUltra::time2dis()
   double temp_double = 0.0;
   double v = 0.0;
   double dis = 0.0;
-  temp_double = double(temp) / 100;
-  Serial.println(temp);
-  v = 331.4 * sqrt(temp_double / 273.16 + 1);
-  //v=332.0+0.607*temp_double;
+  temp_double = double(temp) / 100.0;
+  v=332.0+0.607*temp_double;
   dis = v * time_us / 2 / 10000;
   dis_int = long(dis * 100.0);
   
@@ -54,34 +51,19 @@ void CSUltra::Mea()
   u8 LSB=0;//排序后利用准则剔除，剔除完后最小数据所在数组位数
 
   MDP mdp;
-  GetTemp();
-   
+
   for(u8 i=0;i<AVER_NUM;i++)
   {
     Getdata();
     dis_raw[i]=time2dis();
     delay(20);
   }
-
+  
   for(u8 i=0;i<AVER_NUM;i++)
   {
-//    Serial.print("The");
-//    Serial.print(i);
-//    Serial.print("times");
-//    Serial.println();
-//    for(u8 i=LSB;i<MSB+1;i++)
-//    {
-//      Serial.println(dis_raw[i]);
-//    }
     double gmin=0.0,gmax=0.0;
     mdp=standard_diff(dis_raw,MSB,LSB);
-//    Serial.println("Fuck you 1 times!");
     sort(dis_raw,MSB,LSB);
-//    Serial.println("Fuck you 2 times!");
-//    Serial.println("Data process result");
-//    Serial.println(mdp.data_sdiff);
-//    Serial.println(mdp.data_ave);
-//    Serial.println(Grubbs_lut5[MSB-LSB-4]);
     
     gmin=(mdp.data_ave-dis_raw[LSB])/mdp.data_sdiff;
     gmax=(dis_raw[MSB]-mdp.data_ave)/mdp.data_sdiff;

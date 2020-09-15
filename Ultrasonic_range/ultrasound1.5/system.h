@@ -22,6 +22,7 @@ extern unsigned char key_state;
 extern unsigned char last_state;
 extern unsigned char state;
 extern unsigned long temp;
+extern bool ifscankey;
 
 extern float Grubbs_lut1[16];
 extern float Grubbs_lut5[16];
@@ -32,9 +33,6 @@ typedef struct mdata_process
   double data_sdiff;
 }MDP;
 #endif     
-
-//void Timer_Init();
-//void onTimer();
 
 MDP standard_diff(unsigned long *data,u8 MSB,u8 LSB);
 void sort(unsigned long *data,u8 MSB,u8 LSB);

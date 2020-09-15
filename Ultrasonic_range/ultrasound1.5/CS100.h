@@ -18,7 +18,6 @@ class CSUltra
 {
 public:
   unsigned long dis;  
-  unsigned int temp;
 
   void CSUltra_Init();
 

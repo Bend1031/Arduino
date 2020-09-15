@@ -26,42 +26,69 @@ u8 Key_Scan()
   u8 K1_STATE_down;
   if(K1_STATE==0||K2_STATE==0||K3_STATE==0)
   {
+    ifscankey=1;
     delay(20);   //消抖
     if(K1_STATE==0)
     {
+      
       K1_STATE_down=Last_K1_State&&(!K1_STATE);
       Last_K1_State=K1_STATE;
       if(K1_STATE_down)
+      {
+        ifscankey=0;
         return(1);
+      }
       else
+      {
+        ifscankey=0;
         return(0);
+      }
+        
     }
     else if(K2_STATE==0)
     {
       K2_STATE_down=Last_K2_State&&(!K2_STATE);
       Last_K2_State=K2_STATE;
       if(K2_STATE_down)
+      {
+        ifscankey=0;
         return(2);
+      }
       else
+      {
+        ifscankey=0;
         return(0);
+      }
     }
     else if(K3_STATE==0)
     {
       K3_STATE_down=Last_K3_State&&(!K3_STATE);
       Last_K3_State=K3_STATE;
       if(K3_STATE_down)
+      {
+        ifscankey=0;
         return(3);
+      }
       else
+      {
+        ifscankey=0;
         return(0);
+      }
     }
     else if(K4_STATE==0)
     {
       K4_STATE_down=Last_K4_State&&(!K4_STATE);
       Last_K4_State=K4_STATE;
       if(K4_STATE_down)
+      {
+        ifscankey=0;
         return(4);
+      }
       else
+      {
+        ifscankey=0;
         return(0);
+      }
     }
   }
   else
@@ -70,6 +97,7 @@ u8 Key_Scan()
     Last_K2_State=1;
     Last_K3_State=1;
     Last_K4_State=1;
+    ifscankey=0;
     return 0;
   }
 }

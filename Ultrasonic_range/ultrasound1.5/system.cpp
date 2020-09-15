@@ -4,6 +4,7 @@ u8 key_state = 0;
 u8 last_state = SMAIN_MENU;
 u8 state = SMAIN_MENU;
 unsigned long temp=0;
+bool ifscankey=0;
 
 float Grubbs_lut1[16]={1.75,1.94,2.1,2.22,2.32,2.41,2.48,2.55,2.61,2.66,2.7,2.75,2.78,2.82,2.85,2.88};
 float Grubbs_lut5[16]={1.67,1.82,1.94,2.03,2.11,2.18,2.23,2.28,2.33,2.37,2.41,2.44,2.48,2.5,2.53,2.56};
