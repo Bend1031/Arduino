@@ -10,7 +10,7 @@ void Temp_Init()
 int GetTemp()
 {
   sensors.requestTemperatures(); // 发送命令获取温度
-  temp=int(100*sensors.getTempCByIndex(0));
+  temp = int(100 * sensors.getTempCByIndex(0));
 
   return temp;
 }

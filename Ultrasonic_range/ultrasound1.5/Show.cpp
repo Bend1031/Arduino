@@ -27,17 +27,17 @@ void Show_Dis(unsigned long dis)
 {
   char dis_char[7];
 
-  if(dis/10000)
-    dis_char[0]=dis/10000+0x30;
+  if (dis / 10000)
+    dis_char[0] = dis / 10000 + 0x30;
   else
-    dis_char[0]=' ';
-  dis_char[1]=dis/1000%10+0x30;
-  dis_char[2]=dis/100%10+0x30;
-  dis_char[3]='.';
-  dis_char[4]=dis/10%10+0x30;
-  dis_char[5]=dis%10+0x30;
-  dis_char[6]='\0';
-    
+    dis_char[0] = ' ';
+  dis_char[1] = dis / 1000 % 10 + 0x30;
+  dis_char[2] = dis / 100 % 10 + 0x30;
+  dis_char[3] = '.';
+  dis_char[4] = dis / 10 % 10 + 0x30;
+  dis_char[5] = dis % 10 + 0x30;
+  dis_char[6] = '\0';
+
   lcd.setCursor(6, 0);
   lcd.print(dis_char);
 }
@@ -55,13 +55,13 @@ void Show_TempMenu()
 void Show_Temp()
 {
   char temp_char[6];
-  
-  temp_char[0]=temp/1000+0x30;
-  temp_char[1]=temp/100%10+0x30;
-  temp_char[2]='.';
-  temp_char[3]=temp/10%10+0x30;
-  temp_char[4]=temp%10+0x30;
-  temp_char[5]='\0';
+
+  temp_char[0] = temp / 1000 + 0x30;
+  temp_char[1] = temp / 100 % 10 + 0x30;
+  temp_char[2] = '.';
+  temp_char[3] = temp / 10 % 10 + 0x30;
+  temp_char[4] = temp % 10 + 0x30;
+  temp_char[5] = '\0';
   lcd.setCursor(7, 1);
   lcd.print(temp_char);
 }

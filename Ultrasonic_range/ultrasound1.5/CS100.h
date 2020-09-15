@@ -17,7 +17,7 @@
 class CSUltra
 {
 public:
-  unsigned long dis;  
+  unsigned long dis;
 
   void CSUltra_Init();
 
