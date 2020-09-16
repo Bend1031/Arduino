@@ -21,6 +21,12 @@ void Show_MainMenu()
   lcd.print("Dis: ");
   lcd.setCursor(12, 0);
   lcd.print("cm");
+
+   lcd.setCursor(1, 1);
+  lcd.print("Temp: ");
+  lcd.setCursor(12, 1);
+  lcd.write(0xdf);
+  lcd.print("C");
 }
 
 void Show_Dis(unsigned long dis)

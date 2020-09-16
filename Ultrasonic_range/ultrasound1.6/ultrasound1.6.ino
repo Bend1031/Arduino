@@ -49,6 +49,7 @@ void loop()
     GetTemp();
     ca.Mea();
     Show_Dis(ca.dis);
+    Show_Temp();
     last_state = SMEA;
     state = SIDLE;
     digitalWrite(STATE_LED_PIN, LOW);

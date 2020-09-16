@@ -52,23 +52,23 @@ void CSUltra::Mea()
 
   MDP mdp;
 
-  for (u8 i = 0; i < AVER_NUM; i++)//获取原始测量列
+  for (u8 i = 0; i < AVER_NUM; i++) //获取原始测量列
   {
     Getdata();
     dis_raw[i] = time2dis();
     delay(20);
   }
 
-  for (u8 i = 0; i < AVER_NUM; i++)//异常值剔除
+  for (u8 i = 0; i < AVER_NUM; i++) //异常值剔除
   {
     double gmin = 0.0, gmax = 0.0;
-    mdp = standard_diff(dis_raw, MSB, LSB);//计算标准差
-    sort(dis_raw, MSB, LSB);//排序
+    mdp = standard_diff(dis_raw, MSB, LSB); //计算标准差
+    sort(dis_raw, MSB, LSB);                //排序
 
     gmin = (mdp.data_ave - dis_raw[LSB]) / mdp.data_sdiff;
     gmax = (dis_raw[MSB] - mdp.data_ave) / mdp.data_sdiff;
 
-    if (gmax > gmin)//比较二者谁更值得怀疑出错
+    if (gmax > gmin) //比较二者谁更值得怀疑出错
     {
       if (gmax >= Grubbs_lut5[MSB - LSB - 4])
         MSB--;
@@ -83,7 +83,6 @@ void CSUltra::Mea()
 
         break;
     }
-
-    dis = (unsigned long)(mdp.data_ave + 0.5);
   }
+  dis = (unsigned long)(mdp.data_ave + 0.5);
 }
